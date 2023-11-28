@@ -38,6 +38,10 @@ fetch('https://dummyjson.com/products?limit=10')
 
             products.appendChild(mainCard)
 
+            mainCard.addEventListener('click', () => {
+                window.location.href = `product.html?id=${element.id}`;
+            });
+
 
             
             // priceAndDiscount.innerHTML = `${element.price}$ <span>${element.discountPercentage}%</span> `
