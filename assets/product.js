@@ -21,22 +21,27 @@ async function displayProductDetails() {
         // images
         const imageDiv = document.getElementById('imageDiv');
         let imgCounter = 0;
-        selectedProduct.images.forEach(image => {
-            let imageCard = document.createElement('div')
-            imageCard.classList.add("carousel-item")
-            if(imgCounter == 0) {
-                imageCard.classList.add("active")
-            }
-            imageCard.innerHTML = `<img src="${image}" class="d-block w-100" alt="...">`;
-            imageDiv.appendChild(imageCard)
-        });
         
-
-
-
         console.log(selectedProduct);
         if (selectedProduct) {
-            productDetails.innerHTML = `<h3>${selectedProduct.name}</h3><p>${selectedProduct.description}</p>`;
+            selectedProduct.images.forEach(image => {
+                let imageCard = document.createElement('div')
+                imageCard.classList.add("carousel-item")
+                if(imgCounter == 0) {
+                    imageCard.classList.add("active")
+                }
+                imageCard.innerHTML = `<img src="${image}" class="d-block w-100" alt="...">`;
+                imageDiv.appendChild(imageCard)
+            });
+            productDetails.innerHTML = `
+            <h3>Product name: ${selectedProduct.title}</h3>
+            <p>Brand: ${selectedProduct.brand}</p>
+            <p>Price: ${selectedProduct.price}$ <span class="discount">%${selectedProduct.discountPercentage} off</span></p>
+            <p>Description: ${selectedProduct.description}</p>
+            <p>Customer rating: ${selectedProduct.rating} / 5</p>
+            <p>In stock: ${selectedProduct.stock}</p>
+            `;
+            
         } else {
             productDetails.innerHTML = '<p>Product not found</p>';
         }
