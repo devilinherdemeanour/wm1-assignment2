@@ -12,4 +12,7 @@ Main page is on `index.html` file. This file is connected to the `main.js` file 
 Product page is located under `product.html` file which is connected to the `product.js` file to handle the incoming response from API.
 
 
+## 
+
+- GH Pages - [Assignment2](https://devilinherdemeanour.github.io/wm1-assignment2/)
 
